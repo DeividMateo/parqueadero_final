@@ -35,7 +35,7 @@ public class ParqueaderoTest {
 
         LOG.info("Iniciando test de añadir vehiculos diferentes al parqueadero");
 
-        var parqueadero = new Parqueadero("Parkeando", 20);
+        var parqueadero = new Parqueadero("ParqueoSeguro", 20);
 
         var propietario1 = new Propietario("Deivid", "3195051749");
         var propietario2 = new Propietario("Kevin","3245835859");
@@ -66,7 +66,7 @@ public class ParqueaderoTest {
 
         var parqueadero = new Parqueadero("Parkeando", 20);
 
-        var propietario1 = new Propietario("Yerilin", "Ul", 27, "0987654321", "yerilin@gmail.com");
+        var propietario1 = new Propietario("Deivid","3195051749");
         var propietario2 = new Propietario("Andrés", "Rodriguez", 20, "1234567890", "andres@gmail.com");
         var propietario3 = new Propietario("Camila", "Zamudio", 19, "87438784", "camila@gmail.com");
 
