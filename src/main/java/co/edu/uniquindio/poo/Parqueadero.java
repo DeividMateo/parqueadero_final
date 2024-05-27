@@ -7,22 +7,24 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Hashtable;
 import java.util.LinkedList;
+import java.util.function.Predicate;
 
 public class Parqueadero {
     private final String nombre;
     private int numeroPuestos;
     private Collection<Registro> registros;
     private Collection<Vehiculo> vehiculos;
+    private Hashtable<String, Puesto> puestos;
 
-    public Parqueadero(String nombre, int numeroPuestos){
+    public Parqueadero(String nombre, int numeroPuestos) {
 
-        assert nombre != null && !nombre.isBlank() , "El nombre no puede estar en blanco ni ser Null";
-        assert numeroPuestos > 0 , "El numero de puestos tiene que ser mayor que cero";
+        assert nombre != null && !nombre.isBlank() : "El nombre no puede estar en blanco ni ser Null";
+        assert numeroPuestos > 0 : "El numero de puestos tiene que ser mayor que cero";
         this.nombre = nombre;
         this.numeroPuestos = numeroPuestos;
-        registros= new LinkedList<>();
-        puestos  = new  Hastable<>();
-        vehiculos= new LinkedList<>();
+        registros = new LinkedList<>();
+        puestos = new Hashtable<>();
+        vehiculos = new LinkedList<>();
         crearPuestos(numeroPuestos);
     }
 
@@ -38,8 +40,7 @@ public class Parqueadero {
     }
 
     public void addVehiculoPuestoDado(Vehiculo vehiculo, int posicionI, int posicionJ) {
-        ASSERTION.assertion(verificarPuestoDisponible(posicionI, posicionJ) == true,
-                "Error: el puesto se encuentra ocupado");
+        assert verificarPuestoDisponible(posicionI, posicionJ)== true :"Error el puesto se encuentra ocupado";
         if (verificarPuestoDisponible(posicionI, posicionJ)) {
             var puesto = puestos.get("(" + posicionI + ", " + posicionJ + ")");
             puesto.setVehiculo(vehiculo);
@@ -89,8 +90,8 @@ public class Parqueadero {
      *         el caso de no obtener un propietario del vehiculo
      */
     public Propietario identificarPropietarioPuestoDado(int posicionI, int posicionJ) {
-        ASSERTION.assertion(verificarPuestoDisponible(posicionI, posicionJ) == false,
-                "Error: el puesto se encuentra libre");
+        assert verificarPuestoDisponible(posicionI, posicionJ)== false : "Error el puesto se encuentra libre";
+       
         var puesto = puestos.get("(" + posicionI + ", " + posicionJ + ")");
         if (puesto != null) {
             if (puesto.getEstado().equals(Estado.OCUPADO)) {
@@ -107,7 +108,7 @@ public class Parqueadero {
      * @param vehiculo vehiculo que se desea adicionar
      */
     public void addVehiculo(Vehiculo vehiculo) {
-        ASSERTION.assertion(!verificarVehiculo(vehiculo.getPlaca()), "Error: el vehiculo ya se encuentra registrado");
+        assert !verificarVehiculo(vehiculo.getPlaca()): "Error el vehiculo ya se encuentra Registrado";
 
         vehiculos.add(vehiculo);
     }
