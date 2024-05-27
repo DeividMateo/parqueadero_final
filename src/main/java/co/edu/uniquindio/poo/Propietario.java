@@ -15,9 +15,12 @@ public class Propietario {
         return nombre;
     }
 
+
     public String getCelular() {
         return celular;
     }
+
+    
 
     
 
