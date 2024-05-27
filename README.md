@@ -1,6 +1,6 @@
 # parqueadero_final
 
-Descripciín basisca de su Proyecto de POO ...
+Codigo Java Orientado a Objetos con el Diseño de Programacion TDD 
 
 # Autores
 
