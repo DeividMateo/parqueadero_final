@@ -6,7 +6,6 @@ import java.time.YearMonth;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Hashtable;
-import java.util.LinkedHashSet;
 import java.util.LinkedList;
 
 public class Parqueadero {
