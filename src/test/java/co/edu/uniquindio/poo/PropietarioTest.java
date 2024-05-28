@@ -18,8 +18,8 @@ public class PropietarioTest {
 
         var propietario = new Propietario("Dei V", "Ul", 27, "7654321", "deiv@gmail.com");
 
-        assertEquals("Dei V", propietario.getNombre());
-        assertEquals("Ul", propietario.getApellido());
+        assertEquals("Dei V", propietario.getNombres());
+        assertEquals("lopez", propietario.getApellidos());
         assertEquals(27, propietario.getEdad());
         assertEquals("0987654321", propietario.getCelular());
         assertEquals("deiv@gmail.com", propietario.getCorreo());
