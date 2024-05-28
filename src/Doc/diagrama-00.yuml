@@ -12,6 +12,7 @@
 [<<enum>>;TipoMoto|CLASICA;HIBRIDA]
 [Carro|tarifa:double]
 [Propietario|-nombre:String;-celular: String ]
+[Administrador]
 
         
 
@@ -23,6 +24,7 @@
 [<<abstract>>;Vehiculo]1-1>[Propietario]
 [Puesto]1-1>[<<enum>>;Estado]
 [Puesto]1-1>[<<abstract>>;Vehiculo]
+[Propietario]^-[Administrador]
 
 [<<abstract>>;Vehiculo]<1-*[Registro]
 [<<abstract>>;Vehiculo]^-[Carro]

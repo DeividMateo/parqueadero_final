@@ -40,7 +40,7 @@ public class Parqueadero {
     }
 
     public void addVehiculoPuestoDado(Vehiculo vehiculo, int posicionI, int posicionJ) {
-        assert verificarPuestoDisponible(posicionI, posicionJ)== true :"Error el puesto se encuentra ocupado";
+        assert verificarPuestoDisponible(posicionI, posicionJ) == true : "Error el puesto se encuentra ocupado";
         if (verificarPuestoDisponible(posicionI, posicionJ)) {
             var puesto = puestos.get("(" + posicionI + ", " + posicionJ + ")");
             puesto.setVehiculo(vehiculo);
@@ -52,19 +52,22 @@ public class Parqueadero {
         }
     }
 
-      /**
-     * Método para eliminar un vehiculo de un puesto especifico del estacionamiento, luego cambiando su estado a LIBRE y registrando la fecha de salida del vehiculo en el sistema.
-     * @param posicionI coordenada i del puesto en que se eliminará el vehiculo
-     * @param posicionJ coordenada j del puesto en que se eliminará el vehiculo
+    /**
+     * Método para eliminar un vehiculo de un puesto especifico del estacionamiento,
+     * luego cambiando su estado a LIBRE y registrando la fecha de salida del
+     * vehiculo en el sistema.
+     * 
+     * @param posicionI   coordenada i del puesto en que se eliminará el vehiculo
+     * @param posicionJ   coordenada j del puesto en que se eliminará el vehiculo
      * @param fechaSalida fecha de salida del vehiculo que se va a remover
      */
     public void removeVehiculoPuestoDado(int posicionI, int posicionJ, LocalDateTime fechaSalida) {
-        assert verificarPuestoDisponible(posicionI, posicionJ)==false : "Error el puesto se encuentra libre";
-       
+        assert verificarPuestoDisponible(posicionI, posicionJ) == false : "Error el puesto se encuentra libre";
+
         if (!verificarPuestoDisponible(posicionI, posicionJ)) {
             var puesto = puestos.get("(" + posicionI + ", " + posicionJ + ")");
             var obtenerVehiculo = puesto.getVehiculo();
-            for(Registro registro : registros){
+            for (Registro registro : registros) {
                 if (registro.getVehiculo().equals(obtenerVehiculo) && registro.getFechaSalida() == null) {
                     registro.setFechaSalida(fechaSalida);
                 }
@@ -112,8 +115,8 @@ public class Parqueadero {
      *         el caso de no obtener un propietario del vehiculo
      */
     public Propietario identificarPropietarioPuestoDado(int posicionI, int posicionJ) {
-        assert verificarPuestoDisponible(posicionI, posicionJ)== false : "Error el puesto se encuentra libre";
-       
+        assert verificarPuestoDisponible(posicionI, posicionJ) == false : "Error el puesto se encuentra libre";
+
         var puesto = puestos.get("(" + posicionI + ", " + posicionJ + ")");
         if (puesto != null) {
             if (puesto.getEstado().equals(Estado.OCUPADO)) {
@@ -130,7 +133,7 @@ public class Parqueadero {
      * @param vehiculo vehiculo que se desea adicionar
      */
     public void addVehiculo(Vehiculo vehiculo) {
-        assert !verificarVehiculo(vehiculo.getPlaca()): "Error el vehiculo ya se encuentra Registrado";
+        assert !verificarVehiculo(vehiculo.getPlaca()) : "Error el vehiculo ya se encuentra Registrado";
 
         vehiculos.add(vehiculo);
     }
@@ -256,5 +259,3 @@ public class Parqueadero {
                 .unmodifiableCollection(vehiculos);
     }
 }
-
-
