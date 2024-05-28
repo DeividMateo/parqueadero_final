@@ -13,6 +13,9 @@
 [Carro|-static tarifa:double;|+getTarifa():double;+setTarifa(double tarifa);]
 [Propietario|-nombre:String;-celular:String|+Constructor(nombre:String,celular:String);+getNombres():String;;+getCelular():String]
 
+[Administrador||+cambiarTarifa(Tarifa,double)]
+
+
              
 
 [Parqueadero]<>1-*[Puesto]
@@ -24,3 +27,4 @@
 [Puesto]1-1>[<<abstract>>;Vehiculo]
 [<<abstract>>;Vehiculo]<1-*[Registro]
 [<<abstract>>;Vehiculo]^-[Carro]
+[Propietario]^-[Administrador]
