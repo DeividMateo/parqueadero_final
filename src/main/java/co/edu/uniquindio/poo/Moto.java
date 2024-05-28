@@ -17,9 +17,8 @@ public class Moto extends Vehiculo {
      */
     public Moto(String placa, String modelo, Propietario propietario, double velocidadMaxima, TipoMoto tipoMoto) {
         super(placa, modelo, propietario);
-        assert velocidadMaxima>0 :"Error la edad maxima no puede ser negativa";
-        assert tipoMoto != null :"Error el tipo de moto no puede ser nulo";
-
+        assert velocidadMaxima > 0 : "Error la edad maxima no puede ser negativa";
+        assert tipoMoto != null : "Error el tipo de moto no puede ser nulo";
 
         this.velocidadMaxima = velocidadMaxima;
         this.tipoMoto = tipoMoto;
@@ -66,7 +65,7 @@ public class Moto extends Vehiculo {
      */
     @Override
     public void setTarifa(double tarifa) {
-        assert tarifa > 0.0 :"Error la tarifa debe ser mayor que cero"; 
+        assert tarifa > 0.0 : "Error la tarifa debe ser mayor que cero";
         if (tipoMoto == TipoMoto.CLASICA) {
             Moto.tarifaClasica = tarifa;
         } else {
