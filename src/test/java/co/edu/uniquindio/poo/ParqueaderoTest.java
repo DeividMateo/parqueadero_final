@@ -63,6 +63,22 @@ public class ParqueaderoTest {
         LOG.info("Finalizando test para generar parqueadero sin vehiculos");
     }
 
+    @Test
+    public void agregarVehiculosDiferentes(){
+        LOG.info("Iniciando Test para añadir vehiculos diferentes al parqueadero");
+
+        var parqueadero = new Parqueadero("ParqueoSeguro", 10);
+
+        var propietario1 = new Propietario("Deivid","3195051749");
+
+        var propietario2 = new Propietario("Kevin Lopez", "3223848585");
+
+        var propietario3 = new Propietario("Nicolas Loaiza", "3103844890");
+
+        
+
+    }
+
 
    
 
