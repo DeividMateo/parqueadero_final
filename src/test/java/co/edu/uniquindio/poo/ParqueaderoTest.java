@@ -69,11 +69,11 @@ public class ParqueaderoTest {
 
         var parqueadero = new Parqueadero("ParqueoSeguro", 10);
 
-        var propietario1 = new Propietario("Deivid","3195051749");
+        var propietario1 = new Propietario("Deivid","cañan", 19 ,"3195051749", "deividC@gmail.com");
 
-        var propietario2 = new Propietario("Kevin Lopez", "3223848585");
+        var propietario2 = new Propietario("Kevin", " Lopez",19 ,"3223848585", "KevinLp@gmail.com");
 
-        var propietario3 = new Propietario("Nicolas Loaiza", "3103844890");
+        var propietario3 = new Propietario("Nicolas ", "Loaiza", 19 ,"3103844890", "NicLo@gmail.com");
 
         
 
