@@ -50,6 +50,16 @@ public class AgregationCarPane extends GridPane {
         add(lblModelo, 0, 6);
         add(txtModelo, 1, 6);
 
+        Label lblUbicacionI = new Label("Ubicacion I:");
+        TextField txtUbicacionI = new TextField();
+        add(lblUbicacionI, 0, 7);
+        add(txtUbicacionI, 1, 7);
+
+        Label lblUbicacionJ = new Label("Ubicacion J:");
+        TextField txtUbicacionJ = new TextField();
+        add(lblUbicacionJ, 0, 8);
+        add(txtUbicacionJ, 1, 8);
+
         Button btnRegistrar = new Button("Registar");
         btnRegistrar.setOnAction(e -> {
             String nombre = txtNombre.getText();
@@ -59,11 +69,15 @@ public class AgregationCarPane extends GridPane {
             String mail = txtMail.getText();
             String placa = txtPlaca.getText();
             String modelo = txtModelo.getText();
+            String ubicacion1 = txtUbicacionI.getText();
+            String ubicacion2 = txtUbicacionJ.getText();
 
+            int ubicacionI = Integer.parseInt(ubicacion1);
+            int ubicacionJ = Integer.parseInt(ubicacion2);
             int edad = Integer.parseInt(age);
             Propietario propietario = new Propietario(nombre, apellido, edad, phoneNumber, mail);
             Vehiculo carro = new Carro(placa, modelo, propietario);
-            parqueaderoHolder.getParqueadero().addVehiculo(carro);
+            parqueaderoHolder.getParqueadero().addVehiculoPuestoDado(carro, ubicacionI, ubicacionJ);
             stage.close();
         });
         add(btnRegistrar, 1, 9);

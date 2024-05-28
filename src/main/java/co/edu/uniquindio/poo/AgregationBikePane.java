@@ -62,6 +62,16 @@ public class AgregationBikePane extends GridPane {
         add(lblTipoMoto, 0, 8);
         add(cbTipoMoto, 1, 8);
 
+        Label lblUbicacionI = new Label("Ubicacion I:");
+        TextField txtUbicacionI = new TextField();
+        add(lblUbicacionI, 0, 9);
+        add(txtUbicacionI, 1, 9);
+
+        Label lblUbicacionJ = new Label("Ubicacion J:");
+        TextField txtUbicacionJ = new TextField();
+        add(lblUbicacionJ, 0, 10);
+        add(txtUbicacionJ, 1, 10);
+
         Button btnRegistrar = new Button("Registar");
         btnRegistrar.setOnAction(e -> {
             String nombre = txtNombre.getText();
@@ -74,14 +84,19 @@ public class AgregationBikePane extends GridPane {
             String velocidadMaxima = txtVeocidadMaxima.getText();
             TipoMoto tipoMoto = cbTipoMoto.getValue();
 
+            String ubicacion1 = txtUbicacionI.getText();
+            String ubicacion2 = txtUbicacionJ.getText();
+
+            int ubicacionI = Integer.parseInt(ubicacion1);
+            int ubicacionJ = Integer.parseInt(ubicacion2);
             int edad = Integer.parseInt(age);
             double velocidad = Double.parseDouble(velocidadMaxima);
             Propietario propietario = new Propietario(nombre, apellido, edad, phoneNumber, mail);
             Vehiculo moto = new Moto(placa, modelo, propietario, velocidad, tipoMoto);
-            parqueaderoHolder.getParqueadero().addVehiculo(moto);
+            parqueaderoHolder.getParqueadero().addVehiculoPuestoDado(moto, ubicacionI, ubicacionJ);
             stage.close();
         });
-        add(btnRegistrar, 1, 8);
+        add(btnRegistrar, 1, 11);
 
     }
 }
