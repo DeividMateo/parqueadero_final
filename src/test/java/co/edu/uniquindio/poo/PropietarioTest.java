@@ -20,12 +20,12 @@ public class PropietarioTest {
     
             LOG.info("Iniciando prueba de datos completos del propietario");
     
-            var propietario = new Propietario("Dei V", "Ul", 27, "7654321", "deiv@gmail.com");
+            var propietario = new Propietario("Dei V", "lopez", 27, "7654321", "deiv@gmail.com");
     
             assertEquals("Dei V", propietario.getNombres());
-            assertEquals("Ul", propietario.getApellidos());
+            assertEquals("lopez", propietario.getApellidos());
             assertEquals(27, propietario.getEdad());
-            assertEquals("0987654321", propietario.getCelular());
+            assertEquals("7654321", propietario.getCelular());
             assertEquals("deiv@gmail.com", propietario.getCorreo());
     
             LOG.info("Finalizando prueba de datos completos del propietario");
@@ -55,8 +55,8 @@ public class PropietarioTest {
         public void testPropietarioMenorDeEdad() {
     
             LOG.info("Iniciando prueba de propietario menor de edad");
-    
-            assertThrows(Throwable.class, () -> new Propietario("Dei V", "Ul", -13, "7654321", "deiv@gmail.com"));
+            
+            assertThrows(Throwable.class, () -> new Propietario("Dei V", "lopez", 13, "7654321", "deiv@gmail.com"));
     
             LOG.info("Finalizando prueba de propietario menor de edad");
     }

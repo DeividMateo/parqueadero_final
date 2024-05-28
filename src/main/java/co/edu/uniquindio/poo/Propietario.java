@@ -10,6 +10,16 @@ public class Propietario {
     
     
     public Propietario(String nombres, String apellidos, int edad, String celular, String correo) {
+
+        if (nombres == null || nombres.trim().isEmpty() ||
+        apellidos == null || apellidos.trim().isEmpty() ||
+        celular == null || celular.trim().isEmpty() ||
+        correo == null || correo.trim().isEmpty()) {
+        throw new IllegalArgumentException("Los datos del propietario no pueden ser nulos o vacíos");
+        }
+        if (edad < 18) {
+        throw new IllegalArgumentException("El propietario debe ser mayor de edad");
+        }
         this.nombres = nombres;
         this.apellidos = apellidos;
         this.edad = edad;
