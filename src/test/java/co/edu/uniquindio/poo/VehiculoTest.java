@@ -58,6 +58,19 @@ public class VehiculoTest {
         assertThrows(Throwable.class, () -> new Moto(null, null, null, 0, null));
         
         LOG.info("Finalizando Test datosnulosMoto");
+
+        
+    }
+
+    @Test
+    public void datosNegativosMoto(){
+
+        LOG.info("Iniciando test de datos negativos de moto");
+        
+        var propietario = new Propietario("Nicolas", "Loaiza", 20, "1234567890", "NicolasLo@gmail.com");
+        assertThrows(Throwable.class, () -> new Moto("iko988", "Gixxer 150", propietario, -60, TipoMoto.HIBRIDA));
+
+        LOG.info("Finalizando test de datos negativos de moto");
         
     }
 
@@ -73,5 +86,4 @@ public class VehiculoTest {
     }
 
 
-    
 }
