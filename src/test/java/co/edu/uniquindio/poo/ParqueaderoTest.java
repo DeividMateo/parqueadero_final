@@ -155,6 +155,9 @@ public class ParqueaderoTest {
         parqueadero.addVehiculoPuestoDado(carro, 1, 1);
         parqueadero.addVehiculoPuestoDado(motoClasica, 2, 2);
         parqueadero.addVehiculoPuestoDado(motoHibrida, 3, 3);
+        parqueadero.removeVehiculoPuestoDado(1, 1, LocalDateTime.now().plusHours(1));
+        parqueadero.removeVehiculoPuestoDado(2, 2, LocalDateTime.now().plusHours(1));
+        parqueadero.removeVehiculoPuestoDado(3, 3, LocalDateTime.now().plusHours(1));
 
         LocalDate fecha = LocalDate.now();
 
@@ -256,9 +259,32 @@ public class ParqueaderoTest {
 
         LOG.info("Finalizando test de generarReporteMensual");
 
+    } 
+
+    @Test
+
+    public void identificarPropietarioVehiculoPuestoDado(){
+        LOG.info("Iniciando test para identificar propietario de vehiculo en puesto dado");
+
+        var parqueadero = new Parqueadero("ParqueoSeguro", 10);
+
+        var propietario1 = new Propietario("Deivid", "cañan", 19, "3195051749", "deividC@gmail.com");
+
+        var carro = new Carro("AVG033", "mazda 3", propietario1);
+
+        parqueadero.addVehiculoPuestoDado(carro, 1, 1);
+
+        assertEquals(propietario1, parqueadero.identificarPropietarioPuestoDado(1, 1));
+
+        LOG.info("Finalizando test de identificarPropietarioVehiculoPuesto");
+        
     }
 
 
-    
+
+
+
+
+
 
 }
