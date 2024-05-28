@@ -12,7 +12,7 @@ public class PropietarioTest {
     private static final Logger LOG = Logger.getLogger(PropietarioTest.class.getName());
     
         @Test
-        public void testDatosCompletosDelPropietario() {
+        public void testDatosCompletos() {
     
             LOG.info("Iniciando prueba de datos completos del propietario");
     
@@ -28,7 +28,7 @@ public class PropietarioTest {
         }
     
         @Test
-        public void testDatosNulosDelPropietario() {
+        public void datosNulos() {
     
             LOG.info("Iniciando prueba de datos nulos del propietario");
     
@@ -38,7 +38,7 @@ public class PropietarioTest {
         }
     
         @Test
-        public void testDatosVaciosDelPropietario() {
+        public void datosVacios() {
     
             LOG.info("Iniciando prueba de datos vacíos del propietario");
     
@@ -48,7 +48,7 @@ public class PropietarioTest {
         }
     
         @Test
-        public void testPropietarioMenorDeEdad() {
+        public void propietarioMenorDeEdad() {
     
             LOG.info("Iniciando prueba de propietario menor de edad");
     
@@ -60,23 +60,23 @@ public class PropietarioTest {
     
 
     @Test
-    public void testDatosCompletosDelPropietario() {
+    public void datosCompletosDelPropietario() {
 
         LOG.info("Iniciando prueba de datos completos del propietario");
 
         var propietario = new Propietario("Dei V", "Ul", 27, "7654321", "deiv@gmail.com");
 
-        assertEquals("Dei V", propietario.getNombres());
-        assertEquals("lopez", propietario.getApellidos());
+        assertEquals("Dei V", propietario.getNombre());
+        assertEquals("Ul", propietario.getApellido());
         assertEquals(27, propietario.getEdad());
-        assertEquals("0987654321", propietario.getCelular());
+        assertEquals("7654321", propietario.getCelular());
         assertEquals("deiv@gmail.com", propietario.getCorreo());
 
         LOG.info("Finalizando prueba de datos completos del propietario");
     }
 
     @Test
-    public void testDatosNulosDelPropietario() {
+    public void datosNulosDelPropietario() {
 
         LOG.info("Iniciando prueba de datos nulos del propietario");
 
@@ -86,7 +86,7 @@ public class PropietarioTest {
     }
 
     @Test
-    public void testDatosVaciosDelPropietario() {
+    public void datosVaciosDelPropietario() {
 
         LOG.info("Iniciando prueba de datos vacíos del propietario");
 
@@ -95,14 +95,7 @@ public class PropietarioTest {
         LOG.info("Finalizando prueba de datos vacíos del propietario");
     }
 
-    @Test
-    public void testPropietarioMenorDeEdad() {
-
-        LOG.info("Iniciando prueba de propietario menor de edad");
-
-        assertThrows(Throwable.class, () -> new Propietario("Dei V", "Ul", -13, "7654321", "deiv@gmail.com"));
-
-        LOG.info("Finalizando prueba de propietario menor de edad");
-    }
+   
+    
 
 }
