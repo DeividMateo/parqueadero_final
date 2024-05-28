@@ -10,6 +10,15 @@ import java.util.LinkedList;
 import java.util.function.Predicate;
 
 public class Parqueadero {
+    /**
+     * Método constructor de la clase parqueadero
+     * 
+     * @param nombre          nombre del parqueadero
+     * @param numeroPuestos   numero de puestos que tendrá el parqueadero
+     * @param registros       coleccion de registros
+     * @param vehiculos       coleccion de vehiculos
+     * @param puestos         hashTable de la clase puestos
+     */
     private final String nombre;
     private int numeroPuestos;
     private Collection<Registro> registros;
@@ -28,6 +37,11 @@ public class Parqueadero {
         crearPuestos(numeroPuestos);
     }
 
+    /**
+     * Método void para crear un puesto en el parqueadero
+    * 
+    * 
+    */
     public void crearPuestos(int numeroPuestos) {
         for (int i = 0; i < numeroPuestos; i++) {
             int posicionI = (i + 1);
@@ -39,6 +53,11 @@ public class Parqueadero {
         }
     }
 
+    /**
+     * Método void para añadir un vehiculo en un puesto dado
+    * 
+    * 
+    */
     public void addVehiculoPuestoDado(Vehiculo vehiculo, int posicionI, int posicionJ) {
         assert verificarPuestoDisponible(posicionI, posicionJ) == true : "Error el puesto se encuentra ocupado";
         if (verificarPuestoDisponible(posicionI, posicionJ)) {
