@@ -33,7 +33,7 @@ public class MainInterface extends Application {
         btnAgregarMoto.setOnAction(e -> showAgregationBikeWindow(primaryStage));
         gridPane.add(btnAgregarMoto, 0, 2);
 
-        Button btnRetirarVehiculo = new Button("Retirar Vehicuo");
+        Button btnRetirarVehiculo = new Button("Retirar Vehiculo");
         btnRetirarVehiculo.setOnAction(e -> showRetirarView(primaryStage));
         gridPane.add(btnRetirarVehiculo, 1, 2);
 
