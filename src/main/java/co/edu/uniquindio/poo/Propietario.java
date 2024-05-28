@@ -2,28 +2,28 @@ package co.edu.uniquindio.poo;
 
 public class Propietario {
     
-    private final String nombre;
-    private final String apellido;
+    private final String nombres;
+    private final String apellidos;
     private final int edad;
     private final String celular;
     private final String correo;
     
     
-    public Propietario(String nombre, String apellido, int edad, String celular, String correo) {
-        this.nombre = nombre;
-        this.apellido = apellido;
+    public Propietario(String nombres, String apellidos, int edad, String celular, String correo) {
+        this.nombres = nombres;
+        this.apellidos = apellidos;
         this.edad = edad;
         this.celular = celular;
         this.correo = correo;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getNombres() {
+        return nombres;
     }
 
 
-    public String getApellido() {
-        return apellido;
+    public String getApellidos() {
+        return apellidos;
     }
 
 
