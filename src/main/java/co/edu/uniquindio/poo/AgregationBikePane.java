@@ -10,7 +10,7 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 public class AgregationBikePane extends GridPane {
-    public AgregationBikePane(Stage stage, ParqueaderoHolder parqueaderoHolder) {
+    public AgregationBikePane(@SuppressWarnings("exports") Stage stage, ParqueaderoHolder parqueaderoHolder) {
         setPadding(new Insets(10));
         setHgap(10);
         setVgap(10);

@@ -13,7 +13,7 @@ public class MainInterface extends Application {
     private ParqueaderoHolder parqueaderoHolder;
 
     @Override
-    public void start(Stage primaryStage) {
+    public void start(@SuppressWarnings("exports") Stage primaryStage) {
         parqueaderoHolder = new ParqueaderoHolder();
         GridPane gridPane = new GridPane();
         gridPane.setHgap(10);

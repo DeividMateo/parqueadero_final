@@ -9,7 +9,7 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 public class CreationPane extends GridPane {
-    public CreationPane(Stage stage, ParqueaderoHolder parqueaderoHolder) {
+    public CreationPane(@SuppressWarnings("exports") Stage stage, ParqueaderoHolder parqueaderoHolder) {
         setPadding(new Insets(10));
         setHgap(10);
         setVgap(10);
