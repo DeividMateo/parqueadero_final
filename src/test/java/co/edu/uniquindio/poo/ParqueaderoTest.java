@@ -174,9 +174,9 @@ public class ParqueaderoTest {
     public void calcularTarifaDespuesdeXhoras() {
         LOG.info("Iniciando test para calcular tarifa despues de x horas");
 
-        var parqueadero = new Parqueadero("ParqueoSeguro", 10);
+        var parqueadero = new Parqueadero("ParqueaderoUnicentro", 20);
 
-        var administrador = new Administrador("Jose", "Gonzales ", 28, "3122493490", "JoseGon@gmail.com");
+        var administrador = new Administrador("Mateo", "Villegas", 28, "3122493490", "MateVille@gmail.com");
 
         var propietario1 = new Propietario("Deivid", "cañan", 19, "3195051749", "deividC@gmail.com");
 
@@ -219,9 +219,9 @@ public class ParqueaderoTest {
 
         LOG.info("Iniciando test para generar reporte mensual");
 
-        var parqueadero = new Parqueadero("ParqueoSeguro", 10);
+        var parqueadero = new Parqueadero("ParqueaderoUnicentro", 20);
 
-        var administrador = new Administrador("Jose", "Gonzales ", 28, "3122493490", "JoseGonza@gmail.com");
+        var administrador = new Administrador("Mateo", "Villegas", 28, "3122493490", "MateVille@gmail.com");
 
         var propietario1 = new Propietario("Deivid", "cañan", 19, "3195051749", "deividC@gmail.com");
 
@@ -266,7 +266,7 @@ public class ParqueaderoTest {
     public void identificarPropietarioVehiculoPuestoDado(){
         LOG.info("Iniciando test para identificar propietario de vehiculo en puesto dado");
 
-        var parqueadero = new Parqueadero("ParqueoSeguro", 10);
+        var parqueadero = new Parqueadero("ParqueaderoUnicentro", 20);
 
         var propietario1 = new Propietario("Deivid", "cañan", 19, "3195051749", "deividC@gmail.com");
 

@@ -25,7 +25,7 @@ public class PropietarioTest {
             assertEquals("Dei V", propietario.getNombre());
             assertEquals("Ul", propietario.getApellido());
             assertEquals(27, propietario.getEdad());
-            assertEquals("0987654321", propietario.getCelular());
+            assertEquals("7654321", propietario.getCelular());
             assertEquals("deiv@gmail.com", propietario.getCorreo());
     
             LOG.info("Finalizando prueba de datos completos del propietario");
@@ -56,7 +56,7 @@ public class PropietarioTest {
     
             LOG.info("Iniciando prueba de propietario menor de edad");
     
-            assertThrows(Throwable.class, () -> new Propietario("Dei V", "Ul", -13, "7654321", "deiv@gmail.com"));
+            assertThrows(Throwable.class, () -> new Propietario("Dei V", "Ul", 17, "7654321", "deiv@gmail.com"));
     
             LOG.info("Finalizando prueba de propietario menor de edad");
     }

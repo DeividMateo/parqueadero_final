@@ -1,6 +1,7 @@
 package co.edu.uniquindio.poo;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.util.logging.Logger;
 
@@ -16,13 +17,13 @@ public class VehiculoTest {
 
         LOG.info("Iniciando Test DatosCompletosMoto");
 
-        var propietario = new Propietario("Jose", "Gomez",25,"3103844890","JoseG@gmail.com");
-        var moto = new Moto("ACD045", "Gisxxer250sf", propietario, 154 , TipoMoto.CLASICA);
+        var propietario = new Propietario("Nicolas", "Loaiza",29,"3103844890","NicoL@gmail.com");
+        var moto = new Moto("IJL702", "Gixxer250", propietario, 154 , TipoMoto.CLASICA);
 
-        assertEquals("ACD045", moto.getPlaca());
-        assertEquals("Gixxer250sf", moto.getModelo());
+        assertEquals("IJL702", moto.getPlaca());
+        assertEquals("Gixxer250", moto.getModelo());
         assertEquals(propietario, moto.getPropietario());
-        assertEquals(200, moto.getVelocidadMaxima());
+        assertEquals(154, moto.getVelocidadMaxima());
         assertEquals(TipoMoto.CLASICA, moto.getTipoMoto());
 
         LOG.info("Finalizando Test DatosCompletosMoto");
@@ -37,11 +38,11 @@ public class VehiculoTest {
 
         LOG.info("Iniciando Test DatosCompletosCarro");
 
-        var propietario = new Propietario("Jose", "Gomez",25,"3103844890", "JoseG@gmail.com");
-        var carro = new Carro("DSA432","Audi 2023",propietario);
+        var propietario = new Propietario("Nicolas", "Loaiza",29,"3103844890","NicoL@gmail.com");
+        var carro = new Carro("IJL702","Spark GT",propietario);
 
-        assertEquals("DSA432", carro.getPlaca());
-        assertEquals("Audi 2023", carro.getModelo());
+        assertEquals("IJL702", carro.getPlaca());
+        assertEquals("Spark GT", carro.getModelo());
         assertEquals(propietario, carro.getPropietario());
 
         LOG.info("Finalizando Test DatosCompletosCarro");
@@ -51,7 +52,23 @@ public class VehiculoTest {
 
     @Test
     public void datosnulosMoto(){
+        
+        LOG.info("Iniciando Test datosnulosMoto");
 
+        assertThrows(Throwable.class, () -> new Moto(null, null, null, 0, null));
+        
+        LOG.info("Finalizando Test datosnulosMoto");
+        
+    }
+
+    @Test
+    public void datosnulosCarro(){
+        
+        LOG.info("Iniciando Test datosnulosCarro");
+
+        assertThrows(Throwable.class, () -> new Carro(null, null, null));
+        
+        LOG.info("Finalizando Test datosnulosCarro");
         
     }
 

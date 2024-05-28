@@ -10,6 +10,11 @@ public class Propietario {
     
     
     public Propietario(String nombre, String apellido, int edad, String celular, String correo) {
+        assert nombre != null && !nombre.isBlank() : "El nombre no puede estar en blanco ni ser null";
+        assert apellido != null && !nombre.isBlank() : "El apellido no puede estar en blanco ni ser null";
+        assert  edad >= 18 : "La edad debe ser mayor que 0";
+        assert celular != null && !nombre.isBlank() : "El celular no puede estar en blanco ni ser null";
+        assert correo != null && correo.contains("@") : "El correo electrónico debe contener el símbolo @";
         this.nombre = nombre;
         this.apellido = apellido;
         this.edad = edad;
