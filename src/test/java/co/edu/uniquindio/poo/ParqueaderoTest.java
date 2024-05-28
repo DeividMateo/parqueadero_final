@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertIterableEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.YearMonth;
 import java.util.Collection;
 import java.util.LinkedList;
@@ -127,7 +128,7 @@ public class ParqueaderoTest {
 
     @Test
 
-    public void generaReporteParqueaderoConVehiculos() {
+    public void generaReporteDiarioParqueaderoConVehiculos() {
 
         LOG.info("Iniciando test para generar reporte con vehiculos");
 
@@ -165,5 +166,99 @@ public class ParqueaderoTest {
         LOG.info("Finalizando test de generarReporteDiarioParqueaderoConVehiculos");
 
     }
+
+    @Test
+    public void calcularTarifaDespuesdeXhoras() {
+        LOG.info("Iniciando test para calcular tarifa despues de x horas");
+
+        var parqueadero = new Parqueadero("ParqueoSeguro", 10);
+
+        var administrador = new Administrador("Jose", "Gonzales ", 28, "3122493490", "JoseGon@gmail.com");
+
+        var propietario1 = new Propietario("Deivid", "cañan", 19, "3195051749", "deividC@gmail.com");
+
+        var propietario2 = new Propietario("Kevin", " Lopez", 19, "3223848585", "KevinLp@gmail.com");
+
+        var propietario3 = new Propietario("Nicolas ", "Loaiza", 19, "3103844890", "NicLo@gmail.com");
+
+        var carro = new Carro("AVG033", "mazda 3", propietario1);
+
+        var motoClasica = new Moto("JDF453", "Fz 2.0 ", propietario2, 122, TipoMoto.CLASICA);
+
+        var motoHibrida = new Moto("MSF345", "BWS FI", propietario3, 125, TipoMoto.HIBRIDA);
+
+        administrador.cambiarTarifa(carro, 3500.0);
+        administrador.cambiarTarifa(motoClasica, 2000.0);
+        administrador.cambiarTarifa(motoHibrida, 2800.0);
+
+        parqueadero.addVehiculoPuestoDado(carro, 1, 1);
+        parqueadero.addVehiculoPuestoDado(motoClasica, 2, 2);
+        parqueadero.addVehiculoPuestoDado(motoHibrida, 3, 3);
+
+        parqueadero.removeVehiculoPuestoDado(1, 1, LocalDateTime.now().plusHours(8));
+        parqueadero.removeVehiculoPuestoDado(2, 2, LocalDateTime.now().plusHours(8));
+        parqueadero.removeVehiculoPuestoDado(3, 3, LocalDateTime.now().plusHours(8));
+
+        LocalDate fecha = LocalDate.now();
+
+        List<Double> reporteDiarioEsperado = List.of(28000.0, 16000.0, 22400.0);
+        Collection<Double> reporteDiario = parqueadero.generarReporteDiario(fecha);
+
+        assertEquals(reporteDiarioEsperado, new LinkedList<>(reporteDiario));
+
+        LOG.info("Inicializando test de calcularTarifaDespuesDeXhoras");
+
+    }
+
+    @Test
+
+    public void generarReporteMesual() {
+
+        LOG.info("Iniciando test para generar reporte mensual");
+
+        var parqueadero = new Parqueadero("ParqueoSeguro", 10);
+
+        var administrador = new Administrador("Jose", "Gonzales ", 28, "3122493490", "JoseGonza@gmail.com");
+
+        var propietario1 = new Propietario("Deivid", "cañan", 19, "3195051749", "deividC@gmail.com");
+
+        var propietario2 = new Propietario("Kevin", " Lopez", 19, "3223848585", "KevinLp@gmail.com");
+
+        var propietario3 = new Propietario("Nicolas ", "Loaiza", 19, "3103844890", "NicLo@gmail.com");
+
+        var carro = new Carro("AVG033", "mazda 3", propietario1);
+
+        var motoClasica = new Moto("JDF453", "Fz 2.0 ", propietario2, 122, TipoMoto.CLASICA);
+
+        var motoHibrida = new Moto("MSF345", "BWS FI", propietario3, 125, TipoMoto.HIBRIDA);
+
+
+        administrador.cambiarTarifa(carro, 3500.0);
+        administrador.cambiarTarifa(motoClasica, 2000.0);
+        administrador.cambiarTarifa(motoHibrida, 2800.0);
+
+        parqueadero.addVehiculoPuestoDado(carro, 1, 1);
+        parqueadero.addVehiculoPuestoDado(motoClasica, 2, 2);
+        parqueadero.addVehiculoPuestoDado(motoHibrida, 3, 3);
+
+        parqueadero.removeVehiculoPuestoDado(1, 1, LocalDateTime.now().plusDays(2));
+        parqueadero.removeVehiculoPuestoDado(2, 2, LocalDateTime.now().plusHours(15));
+        parqueadero.removeVehiculoPuestoDado(3, 3, LocalDateTime.now().plusMonths(1));
+
+        YearMonth mes = YearMonth.now();
+
+        /*
+         * carro: 48h*3500.0 = 168000.0, motoClasica: 15h*2000.0 = 30000.0, motoHibrida:
+         * 31d*24h = 744h| 744h*2800.0 = 2083200.0
+         * Total: 168000.0 + 30000.0 + 2083200.0 = 2281200
+         */
+        assertEquals(2281200, parqueadero.generarReporteMensual(mes));
+
+        LOG.info("Finalizando test de generarReporteMensual");
+
+    }
+
+
+    
 
 }
