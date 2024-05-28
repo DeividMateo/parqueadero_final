@@ -54,7 +54,7 @@ public class PropietarioTest {
     
             LOG.info("Iniciando prueba de propietario menor de edad");
     
-            assertThrows(Throwable.class, () -> new Propietario("Dei V", "Ul", 13, "7654321", "deiv@gmail.com"));
+            assertThrows(Throwable.class, () -> new Propietario("Dei V", "Ul", -13, "7654321", "deiv@gmail.com"));
     
             LOG.info("Finalizando prueba de propietario menor de edad");
     }
