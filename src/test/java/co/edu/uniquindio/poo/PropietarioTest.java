@@ -9,6 +9,8 @@ import org.junit.jupiter.api.Test;
 
 
 public class PropietarioTest {
+
+    
     
 
     private static final Logger LOG = Logger.getLogger(PropietarioTest.class.getName());
