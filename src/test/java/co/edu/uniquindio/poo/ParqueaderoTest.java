@@ -75,6 +75,30 @@ public class ParqueaderoTest {
 
         var propietario3 = new Propietario("Nicolas ", "Loaiza", 19 ,"3103844890", "NicLo@gmail.com");
 
+        var carro = new Carro("AVG033","mazda 3", propietario1 );
+
+        var motoClasica = new Moto("JDF453","Fz 2.0 ",propietario2, 122,TipoMoto.CLASICA);
+
+        var motoHibrida = new Moto("MSF345","BWS FI", propietario3, 125,TipoMoto.HIBRIDA);
+
+        assertEquals(true, parqueadero.verificarPuestoDisponible(1, 1));
+        parqueadero.addVehiculoPuestoDado(carro, 1, 1);
+        assertEquals(false, parqueadero.verificarPuestoDisponible(1,1));
+        assertEquals(true, parqueadero.verificarPuestoDisponible(2, 2));
+        parqueadero.addVehiculoPuestoDado(motoClasica, 2, 2);
+        assertEquals(false, parqueadero.verificarPuestoDisponible(2,2));
+        assertEquals(true, parqueadero.verificarPuestoDisponible(3, 3));
+        parqueadero.addVehiculoPuestoDado(motoHibrida, 3, 3);
+        assertEquals(false, parqueadero.verificarPuestoDisponible(3,3));
+
+        LOG.info("Finalizando test de añadir vehiculos diferentes al parqueadero");
+
+    
+
+
+
+
+
         
 
     }
