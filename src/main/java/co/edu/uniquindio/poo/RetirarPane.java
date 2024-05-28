@@ -27,8 +27,8 @@ public class RetirarPane extends GridPane {
         add(lblPoscicionJ, 0, 1);
         add(txtPoscicionJ, 1, 1);
 
-        Button btnCrear = new Button("Crear");
-        btnCrear.setOnAction(e -> {
+        Button btnRetirar = new Button("Retirar");
+        btnRetirar.setOnAction(e -> {
             String poscicionI = txtPoscicionI.getText();
             String poscicionJ = txtPoscicionJ.getText();
 
@@ -38,7 +38,7 @@ public class RetirarPane extends GridPane {
             parqueaderoHolder.getParqueadero().removeVehiculoPuestoDado(poscicion1, poscicion2, LocalDateTime.now());
             stage.close();
         });
-        add(btnCrear, 1, 2);
+        add(btnRetirar, 1, 2);
 
     }
 }

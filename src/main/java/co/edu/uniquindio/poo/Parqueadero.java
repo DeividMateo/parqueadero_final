@@ -47,6 +47,7 @@ public class Parqueadero {
             actualizarEstadoPuesto(posicionI, posicionJ, Estado.OCUPADO);
             LocalDateTime fechaEntrada = LocalDateTime.now();
             Registro nuevoRegistro = new Registro(fechaEntrada, null, vehiculo);
+            System.out.println("vehiculo agregado en la poscision I: " + posicionI + "y poscision J: " + posicionJ);
             registros.add(nuevoRegistro);
             addVehiculo(vehiculo);
         }
@@ -73,6 +74,8 @@ public class Parqueadero {
                 }
             }
             puesto.setVehiculo(null);
+            System.out.println("vehiculo con placas: " + obtenerVehiculo.getPlaca() + "retirado de la poscision I: "
+                    + posicionI + "y poscisioN J: " + posicionJ);
             actualizarEstadoPuesto(posicionI, posicionJ, Estado.LIBRE);
         }
     }
