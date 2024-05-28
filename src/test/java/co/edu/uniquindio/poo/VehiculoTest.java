@@ -16,7 +16,7 @@ public class VehiculoTest {
 
         LOG.info("Iniciando Test DatosCompletosMoto");
 
-        var propietario = new Propietario("Jose", "3103844890");
+        var propietario = new Propietario("Jose", "Gomez",25,"3103844890","JoseG@gmail.com");
         var moto = new Moto("ACD045", "Gisxxer250sf", propietario, 154 , TipoMoto.CLASICA);
 
         assertEquals("ACD045", moto.getPlaca());
@@ -37,7 +37,7 @@ public class VehiculoTest {
 
         LOG.info("Iniciando Test DatosCompletosCarro");
 
-        var propietario = new Propietario("Jose", "3103844890");
+        var propietario = new Propietario("Jose", "Gomez",25,"3103844890", "JoseG@gmail.com");
         var carro = new Carro("DSA432","Audi 2023",propietario);
 
         assertEquals("DSA432", carro.getPlaca());
