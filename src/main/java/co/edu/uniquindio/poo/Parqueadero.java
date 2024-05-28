@@ -81,7 +81,7 @@ public class Parqueadero {
      * @param posicionJ   coordenada j del puesto en que se eliminará el vehiculo
      * @param fechaSalida fecha de salida del vehiculo que se va a remover
      */
-    public void removeVehiculoPuestoDado(int posicionI, int posicionJ, LocalDateTime fechaSalida) {
+    public void removerVehiculoPuestoDado(int posicionI, int posicionJ, LocalDateTime fechaSalida) {
         assert verificarPuestoDisponible(posicionI, posicionJ) == false : "Error el puesto se encuentra libre";
 
         if (!verificarPuestoDisponible(posicionI, posicionJ)) {
