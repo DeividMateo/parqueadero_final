@@ -2,11 +2,12 @@ package co.edu.uniquindio.poo;
 
 public class Propietario {
     
-    private final String nombres;
-    private final String apellidos;
+    private final String nombre;
+    private final String apellido;
     private final int edad;
     private final String celular;
     private final String correo;
+    
     
     
     public Propietario(String nombre, String apellido, int edad, String celular, String correo) {
@@ -22,13 +23,13 @@ public class Propietario {
         this.correo = correo;
     }
 
-    public String getNombres() {
-        return nombres;
+    public String getNombre() {
+        return nombre;
     }
 
 
-    public String getApellidos() {
-        return apellidos;
+    public String getApellido() {
+        return apellido;
     }
 
 
