@@ -206,6 +206,9 @@ La implementación del parqueadero debe hacer uso de herencia para una mejor org
   - celular: Texto
   - correo: Texto
 
+- **Administrador**
+
+
 ---
 
 <style scoped>

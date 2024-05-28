@@ -20,9 +20,9 @@ public class VehiculoTest {
         var moto = new Moto("ACD045", "Gisxxer250sf", propietario, 154 , TipoMoto.CLASICA);
 
         assertEquals("ACD045", moto.getPlaca());
-        assertEquals("Gixxer250sf", moto.getModelo());
+        assertEquals("Gisxxer250sf", moto.getModelo());
         assertEquals(propietario, moto.getPropietario());
-        assertEquals(200, moto.getVelocidadMaxima());
+        assertEquals(154, moto.getVelocidadMaxima());
         assertEquals(TipoMoto.CLASICA, moto.getTipoMoto());
 
         LOG.info("Finalizando Test DatosCompletosMoto");

@@ -1,6 +1,7 @@
 package co.edu.uniquindio.poo;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertIterableEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.time.LocalDate;
@@ -17,17 +18,17 @@ public class ParqueaderoTest {
     private static final Logger LOG = Logger.getLogger(ParqueaderoTest.class.getName());
 
     @Test
-    public void datosCompletosParqueadero() {
+    public void datosCompletos() {
 
-        LOG.info("Iniciando test de datos Completos Parqueadero");
+        LOG.info("Iniciando test de datos Completos");
 
-        var Parqueadero = new Parqueadero("ParqueoSeguro", 10);
+        var Parqueadero = new Parqueadero("ParqueaderoUnicentro", 20);
 
-        assertEquals("ParqueoSeguro", Parqueadero.getNombre());
+        assertEquals("ParqueaderoUnicentro", Parqueadero.getNombre());
 
-        assertEquals(10, Parqueadero.getNumeroPuestos());
+        assertEquals(20, Parqueadero.getNumeroPuestos());
 
-        LOG.info("Finalizando test de datos Completos Parqueadero");
+        LOG.info("Finalizando test de datos Completos");
 
     }
 
@@ -35,21 +36,21 @@ public class ParqueaderoTest {
 
     public void crearPuestos() {
 
-        LOG.info("iniciando Test para Crear Puestos del Parqueadero ");
+        LOG.info("iniciando test para crear puestos");
 
-        var parqueadero = new Parqueadero("ParqueoSeguro", 10);
+        var parqueadero = new Parqueadero("ParqueaderoUnicentro", 20);
 
-        assertEquals(100, parqueadero.getPuestos().size());
-        LOG.info("Finalizando test para crear puestos del parqueadero ");
+        assertEquals(400, parqueadero.getPuestos().size());
+        LOG.info("Finalizando test para crear puestos");
 
     }
 
     @Test
-    public void generaReporteParqueaderoSinVehiculos() {
+    public void generaReporteSinVehiculos() {
 
-        LOG.info("Iniciando test para generar parqueadero sin vehiculos");
+        LOG.info("Iniciando test para generar reporte sin vehiculos");
 
-        var parqueadero = new Parqueadero("ParqueoSeguro", 10);
+        var parqueadero = new Parqueadero("ParqueaderoUnicentro", 20);
 
         LocalDate fecha = LocalDate.now();
         YearMonth mes = YearMonth.now();
@@ -59,14 +60,14 @@ public class ParqueaderoTest {
         assertEquals(reporteDiarioEsperado, new LinkedList<>(reporteDiario));
         assertEquals(0, 0, parqueadero.generarReporteMensual(mes));
 
-        LOG.info("Finalizando test para generar parqueadero sin vehiculos");
+        LOG.info("Finalizando test para generar reporte sin vehiculos");
     }
 
     @Test
     public void agregarVehiculosDiferentes() {
-        LOG.info("Iniciando Test para añadir vehiculos diferentes al parqueadero");
+        LOG.info("Iniciando Test para añadir vehiculos diferentes");
 
-        var parqueadero = new Parqueadero("ParqueoSeguro", 10);
+        var parqueadero = new Parqueadero("ParqueaderoUnicentro", 20);
 
         var propietario1 = new Propietario("Deivid", "cañan", 19, "3195051749", "deividC@gmail.com");
 
@@ -90,16 +91,16 @@ public class ParqueaderoTest {
         parqueadero.addVehiculoPuestoDado(motoHibrida, 3, 3);
         assertEquals(false, parqueadero.verificarPuestoDisponible(3, 3));
 
-        LOG.info("Finalizando test de añadir vehiculos diferentes al parqueadero");
+        LOG.info("Finalizando test de añadir vehiculos diferentes");
 
     }
 
     @Test
 
     public void agregarVehiculosIguales() {
-        LOG.info("Iniciando Test para añadir vehiculos iguales al parqueadero");
+        LOG.info("Iniciando Test para añadir vehiculos");
 
-        var parqueadero = new Parqueadero("ParqueoSeguro", 10);
+        var parqueadero = new Parqueadero("ParqueaderoUnicentro", 20);
 
         var propietario1 = new Propietario("Deivid ", "Cañan", 19, "3195051749", "deividc@gmail.com");
 
@@ -118,11 +119,10 @@ public class ParqueaderoTest {
 
         assertEquals(false, parqueadero.verificarPuestoDisponible(3, 1));
         assertEquals(false, parqueadero.verificarPuestoDisponible(2, 2));
-        // assertEquals(true, parqueadero.verificarPuestoDisponible("5", "5",
-        // Estado.LIBRE));
+        
         assertThrows(Throwable.class, () -> parqueadero.addVehiculoPuestoDado(motoClasica2, 2, 2));
 
-        LOG.info("Finalizando test de añadir vehiculos diferentes al parqueadero");
+        LOG.info("Finalizando test de añadir vehiculos");
 
     }
 
@@ -130,11 +130,11 @@ public class ParqueaderoTest {
 
     public void generaReporteDiarioParqueaderoConVehiculos() {
 
-        LOG.info("Iniciando test para generar parqueadero con vehiculos");
+        LOG.info("Iniciando test para generar reporte con vehiculos");
 
-        var parqueadero = new Parqueadero("ParqueoSeguro", 10);
+        var parqueadero = new Parqueadero("ParqueaderoUnicentro", 20);
 
-        var administrador = new Administrador("Jose", "Gonzales ", 28, "3122493490", "JoseGonza@gmail.com");
+        var administrador = new Administrador("Mateo", "Villegas", 28, "3122493490", "MateVille@gmail.com");
 
         var propietario1 = new Propietario("Deivid", "cañan", 19, "3195051749", "deividC@gmail.com");
 
@@ -155,13 +155,16 @@ public class ParqueaderoTest {
         parqueadero.addVehiculoPuestoDado(carro, 1, 1);
         parqueadero.addVehiculoPuestoDado(motoClasica, 2, 2);
         parqueadero.addVehiculoPuestoDado(motoHibrida, 3, 3);
+        parqueadero.removeVehiculoPuestoDado(1, 1, LocalDateTime.now().plusHours(1));
+        parqueadero.removeVehiculoPuestoDado(2, 2, LocalDateTime.now().plusHours(1));
+        parqueadero.removeVehiculoPuestoDado(3, 3, LocalDateTime.now().plusHours(1));
 
         LocalDate fecha = LocalDate.now();
 
         List<Double> reporteDiarioEsperado = List.of(3500.0, 2000.0, 2800.0);
         Collection<Double> reporteDiario = parqueadero.generarReporteDiario(fecha);
 
-        assertEquals(reporteDiarioEsperado, new LinkedList<>(reporteDiario));
+        assertIterableEquals(reporteDiarioEsperado, new LinkedList<>(reporteDiario));
 
         LOG.info("Finalizando test de generarReporteDiarioParqueaderoConVehiculos");
 
@@ -256,9 +259,32 @@ public class ParqueaderoTest {
 
         LOG.info("Finalizando test de generarReporteMensual");
 
+    } 
+
+    @Test
+
+    public void identificarPropietarioVehiculoPuestoDado(){
+        LOG.info("Iniciando test para identificar propietario de vehiculo en puesto dado");
+
+        var parqueadero = new Parqueadero("ParqueoSeguro", 10);
+
+        var propietario1 = new Propietario("Deivid", "cañan", 19, "3195051749", "deividC@gmail.com");
+
+        var carro = new Carro("AVG033", "mazda 3", propietario1);
+
+        parqueadero.addVehiculoPuestoDado(carro, 1, 1);
+
+        assertEquals(propietario1, parqueadero.identificarPropietarioPuestoDado(1, 1));
+
+        LOG.info("Finalizando test de identificarPropietarioVehiculoPuesto");
+        
     }
 
 
-    
+
+
+
+
+
 
 }
