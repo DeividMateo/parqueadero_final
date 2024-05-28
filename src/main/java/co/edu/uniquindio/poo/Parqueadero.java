@@ -52,6 +52,28 @@ public class Parqueadero {
         }
     }
 
+      /**
+     * Método para eliminar un vehiculo de un puesto especifico del estacionamiento, luego cambiando su estado a LIBRE y registrando la fecha de salida del vehiculo en el sistema.
+     * @param posicionI coordenada i del puesto en que se eliminará el vehiculo
+     * @param posicionJ coordenada j del puesto en que se eliminará el vehiculo
+     * @param fechaSalida fecha de salida del vehiculo que se va a remover
+     */
+    public void removeVehiculoPuestoDado(int posicionI, int posicionJ, LocalDateTime fechaSalida) {
+        assert verificarPuestoDisponible(posicionI, posicionJ)==false : "Error el puesto se encuentra libre";
+       
+        if (!verificarPuestoDisponible(posicionI, posicionJ)) {
+            var puesto = puestos.get("(" + posicionI + ", " + posicionJ + ")");
+            var obtenerVehiculo = puesto.getVehiculo();
+            for(Registro registro : registros){
+                if (registro.getVehiculo().equals(obtenerVehiculo) && registro.getFechaSalida() == null) {
+                    registro.setFechaSalida(fechaSalida);
+                }
+            }
+            puesto.setVehiculo(null);
+            actualizarEstadoPuesto(posicionI, posicionJ, Estado.LIBRE);
+        }
+    }
+
     public boolean verificarPuestoDisponible(int i, int j) {
         var puesto = puestos.get("(" + i + ", " + j + ")");
         if (puesto != null) {
